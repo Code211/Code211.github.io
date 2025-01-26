@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:ital@0;1&family=Poppins:wght@400;500;700&family=Roboto&display=swap');
+
+body {
+  font-family: Roboto, "Open Sans";
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+  z-index: 10;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.hero-background {
+  background: linear-gradient(90deg, #6c5ce7, #00b894);
+  color: #fff;
+  padding: 100px 10px;
+}
+
+.btn-primary {
+  background-color: #00b894;
+  border: none;
+  border-radius: .25rem;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #6c5ce7;
+}
+
+.section {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.line {
+  position: absolute;
+  flex-shrink: 0;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  height: auto;
+  background: linear-gradient(#6c5ce7, #333);
+  z-index: 1;
+}
+
+.line-branch {
+  position: absolute;
+  height: 12px;
+  width: 580px;
+  border-radius: 20px;
+  background: #6c5ce7;
+  transform: translateY(15px);
+  left: 20px;
+  z-index: 0;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #6c5ce7;
+  color: white;
+}
+
+.accordion-button{
+  background-color: #6c5ce7;
+  color: white;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #333;
+  padding: 20px;
+}
+
+@media (max-width: 750px) {
+  .line{
+    left: 10px;
+    width: 5px;
+  }
+  
+  .line-branch {
+  height: 8px;
+  width: 45px;
+  transform: translateY(20px);
+  left: 10px;
+  z-index: 0;
+}
+}
