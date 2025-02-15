@@ -1,18 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:ital@0;1&family=Poppins:wght@400;500;700&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --primary-color: #1c3f60;
+  --secondary-color: #0eba94;
+  --text-color: #fff;
+  --background-color-one: #000;
+  --background-color-two: #f9f9f9;
+}
 
 body {
-  font-family: Roboto, "Open Sans";
+  font-family: "Poppins", sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  background-color: var(--background-color-two);
 }
 
 .navbar {
+  background-color: var(--background-color-one);
   margin-bottom: 0;
   z-index: 10;
 }
 
 .navbar-nav .nav-link {
+  color: var(--text-color);
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -22,91 +33,146 @@ body {
 }
 
 .hero-background {
-  background: linear-gradient(90deg, #6c5ce7, #00b894);
-  color: #fff;
+  background: linear-gradient(
+    360deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--text-color);
   padding: 100px 10px;
 }
 
 .btn-primary {
-  background-color: #00b894;
+  background-color: var(--secondary-color);
   border: none;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   font-weight: bold;
   font-size: 18px;
-  color: #fff;
+  color: var(--text-color);
   padding: 10px 20px;
   margin-top: 20px;
   transition: background-color 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: #6c5ce7;
+  background-color: var(--primary-color);
 }
 
-.section {
-  position: relative;
+hr {
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: 20px auto;
+  opacity: .5;
+}
+
+
+.schedule-container {
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.schedule-row {
   display: flex;
   align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  flex-wrap: wrap;
 }
 
-.line {
-  position: absolute;
-  flex-shrink: 0;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 10px;
-  height: auto;
-  background: linear-gradient(#6c5ce7, #333);
-  z-index: 1;
+.schedule-row:last-child {
+  border-bottom: none;
 }
 
-.line-branch {
-  position: absolute;
-  height: 12px;
-  width: 580px;
-  border-radius: 20px;
-  background: #6c5ce7;
-  transform: translateY(15px);
-  left: 20px;
-  z-index: 0;
+.time-column {
+  width: 120px;
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  text-align: center;
 }
 
-.section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.events-column {
+  flex-grow: 1;
+  padding-left: 25px;
+  border-left: 3px solid var(--primary-color);
+  transition: background-color 0.3s ease;
+}
+
+.event-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.event-description {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+.schedule-row:hover .event-name {
+  color: var(--secondary-color);
+}
+
+.schedule-row:hover {
+  cursor: pointer;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #6c5ce7;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
-.accordion-button{
-  background-color: #6c5ce7;
-  color: white;
+.accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.accordion-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .faq-item {
   margin-bottom: 20px;
 }
 
+p {
+  font-size: 1.1em;
+}
+
 footer {
-  background-color: #333;
+  background-color: var(--background-color-one);
   padding: 20px;
 }
 
-@media (max-width: 750px) {
-  .line{
-    left: 10px;
-    width: 5px;
+footer a{
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .schedule-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .line-branch {
-  height: 8px;
-  width: 45px;
-  transform: translateY(20px);
-  left: 10px;
-  z-index: 0;
+
+  .time-column {
+    width: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+    font-size: 1.1rem;
+    border-bottom: 3px solid var(--primary-color); /* Blue bar under the time */
+    padding-top: 10px;
+  }
+
+  .events-column {
+    border-left: none;
+    padding-left: 0;
+    width: 100%;
+  }
 }
-}
+
