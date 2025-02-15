@@ -124,3 +124,24 @@ p {
     left: -150px;
   }
 }
+
+@media (max-width: 850px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .line.vertical {
+    display: none;
+  }
+  .line.upward {
+    display: none;
+  }
+}
