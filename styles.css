@@ -3,176 +3,124 @@
 :root {
   --primary-color: #1c3f60;
   --secondary-color: #0eba94;
-  --text-color: #fff;
-  --background-color-one: #000;
+  --text-color: #000;
   --background-color-two: #f9f9f9;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  line-height: 1.6;
+  background: var(--background-color-two);
+  color: var(--text-color);
   margin: 0;
-  padding: 0;
-  background-color: var(--background-color-two);
+  overflow: hidden;
 }
 
-.navbar {
-  background-color: var(--background-color-one);
-  margin-bottom: 0;
-  z-index: 10;
-}
-
-.navbar-nav .nav-link {
-  color: var(--text-color);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.navbar-nav {
-  margin-left: auto;
-}
-
-.hero-background {
-  background: linear-gradient(
-    360deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
-  color: var(--text-color);
-  padding: 100px 10px;
-}
-
-.btn-primary {
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  font-size: 18px;
-  color: var(--text-color);
-  padding: 10px 20px;
-  margin-top: 20px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-color);
-}
-
-hr {
-  height: 4px;
-  background-color: var(--primary-color);
-  margin: 20px auto;
-  opacity: .5;
-}
-
-
-.schedule-container {
-  margin: 0 auto;
-  padding: 30px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: white;
-}
-
-.schedule-row {
+.container {
   display: flex;
-  align-items: flex-start;
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd;
-  transition: background-color 0.3s ease;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
 }
 
-.schedule-row:last-child {
-  border-bottom: none;
-}
-
-.time-column {
-  width: 120px;
-  font-weight: bold;
-  color: var(--primary-color);
-  font-size: 1.1rem;
+.content {
   text-align: center;
+  z-index: 10;
+  padding: 10px;
 }
 
-.events-column {
-  flex-grow: 1;
-  padding-left: 25px;
-  border-left: 3px solid var(--primary-color);
-  transition: background-color 0.3s ease;
+h1 {
+  font-size: 60px;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-.event-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.event-description {
-  font-size: 1rem;
-  color: #555;
-  margin-top: 5px;
-}
-
-.schedule-row:hover .event-name {
+.description {
+  font-size: 30px;
   color: var(--secondary-color);
-}
-
-.schedule-row:hover {
-  cursor: pointer;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-}
-
-.accordion-button::after {
-  filter: brightness(0) invert(1);
-}
-
-.accordion-button {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-}
-
-.faq-item {
   margin-bottom: 20px;
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 30px;
+  color: var(--text-color);
 }
 
-footer {
-  background-color: var(--background-color-one);
-  padding: 20px;
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
 }
 
-footer a{
-  text-decoration: none;
+.line {
+  position: absolute;
+  background: var(--primary-color);
+  opacity: 0.8;
+  animation: move 5s linear infinite;
 }
 
-@media (max-width: 768px) {
-  .schedule-row {
-    flex-direction: column;
-    align-items: flex-start;
+.line.vertical {
+  width: 2px;
+  height: 150px;
+  animation: fall 5s linear infinite;
+}
+
+.line.horizontal {
+  width: 150px;
+  height: 2px;
+  animation: slide 5s linear infinite;
+}
+
+.line.upward {
+  width: 2px;
+  height: 150px;
+  animation: rise 5s linear infinite;
+}
+
+.line.right-to-left {
+  width: 150px;
+  height: 2px;
+  animation: reverse-slide 5s linear infinite;
+}
+
+/* Animations */
+@keyframes fall {
+  from {
+    top: -150px;
   }
-
-  .time-column {
-    width: 100%;
-    text-align: left;
-    padding-bottom: 10px;
-    font-size: 1.1rem;
-    border-bottom: 3px solid var(--primary-color); /* Blue bar under the time */
-    padding-top: 10px;
-  }
-
-  .events-column {
-    border-left: none;
-    padding-left: 0;
-    width: 100%;
+  to {
+    top: 100vh;
   }
 }
 
+@keyframes slide {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100vw;
+  }
+}
+
+@keyframes rise {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: -150px;
+  }
+}
+
+@keyframes reverse-slide {
+  from {
+    left: 100vw;
+  }
+  to {
+    left: -150px;
+  }
+}

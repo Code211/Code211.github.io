@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crossroads Hackathon 2025</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../Home/styles.css" />
+    <script defer src="../components/load.js"></script>
+    <script defer src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Hero Section -->
+    <div class="text-center">
+      <div class="hero-background">
+        <h1 class="display-1 fw-bold">Code211 Hackathon 2025: <br /></h1>
+        <p class="lead fs-2">Where Innovation Meets Collaboration</p>
+        <!-- TODO: Add link -->
+        <a href="" target="_blank"
+          ><button class="btn-primary">Sign Up Now</button></a
+        >
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="py-5 container">
+      <h1 class="text-center">Hackathon Info</h1>
+      <hr>
+      <p><strong>Location:</strong> In-Person at Fremd High School</p>
+      <p><strong>Date & Time:</strong> April 12, 2025</p>
+      <p>
+        <strong>Purpose:</strong> Join us to innovate, collaborate, and shape a
+        better future through technology.
+      </p>
+    </div>
+
+    <!-- Schedule Section -->
+    <div id="schedule" class="py-5 container">
+      <h1 class="text-center">Schedule</h1>
+      <hr>
+      <div class="schedule-container">
+        <div class="schedule-row">
+          <div class="time-column">8:00 AM</div>
+          <div class="events-column">
+            <div class="event-name">Morning Meeting</div>
+            <div class="event-description">
+              Discussion of daily goals and tasks for the team.
+            </div>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="time-column">10:00 AM</div>
+          <div class="events-column">
+            <div class="event-name">Coding Session</div>
+            <div class="event-description">
+              Working on the backend API for the new project.
+            </div>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="time-column">12:00 PM</div>
+          <div class="events-column">
+            <div class="event-name">Lunch Break</div>
+            <div class="event-description">
+              Taking a break and having lunch.
+            </div>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="time-column">1:00 PM</div>
+          <div class="events-column">
+            <div class="event-name">Team Collaboration</div>
+            <div class="event-description">
+              Collaborating with the design team on new features.
+            </div>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="time-column">3:00 PM</div>
+          <div class="events-column">
+            <div class="event-name">Client Meeting</div>
+            <div class="event-description">
+              Discussing the latest project deliverables with the client.
+            </div>
+          </div>
+        </div>
+        <div class="schedule-row">
+          <div class="time-column">5:00 PM</div>
+          <div class="events-column">
+            <div class="event-name">Wrap-up and Plan Next Day</div>
+            <div class="event-description">
+              Review the progress of the day's work and prepare for the next
+              day.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faq" class="py-5 container">
+      <h1 class="text-center">FAQ</h1>
+      <hr>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="accordion" id="faqAccordion1">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqOne">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  Who can participate?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqOne"
+                data-bs-parent="#faqAccordion1"
+              >
+                <div class="accordion-body">
+                  Anyone with a passion for innovation and technology is
+                  welcome!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="accordion" id="faqAccordion2">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqTwo">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="true"
+                  aria-controls="collapseTwo"
+                >
+                  What do I need to bring?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqTwo"
+                data-bs-parent="#faqAccordion2"
+              >
+                <div class="accordion-body">
+                  Bring your laptop, enthusiasm, and an open mind.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="accordion" id="faqAccordion3">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqThree">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Are there prizes?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqThree"
+                data-bs-parent="#faqAccordion3"
+              >
+                <div class="accordion-body">
+                  Yes, exciting prizes await the winners!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional FAQ Item for 2x2 Layout -->
+        <div class="col">
+          <div class="accordion" id="faqAccordion4">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqFour">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  How do I register?
+                </button>
+              </h2>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqFour"
+                data-bs-parent="#faqAccordion4"
+              >
+                <div class="accordion-body">
+                  You can register on our official website by filling out the
+                  form.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sponsor Section -->
+    <div id="sponsors" class="py-5 container">
+      <h1 class="text-center">Sponsors</h1>
+      <hr>
+      <div class="row text-center">
+        <div class="col-md-6 d-flex flex-column align-items-center">
+          <img
+            src="../img/sponsor/wolfram.png"
+            alt="Sponsor: Wolfram Alpha"
+            class="img-fluid mb-3"
+            style="max-width: 300px; height: auto"
+          />
+          <p class="fs-2">Wolfram Alpha</p>
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center">
+          <img
+            src="../img/sponsor/echo3d.png"
+            alt="Sponsor: Echo3d"
+            class="img-fluid mb-3"
+            style="max-width: 300px; height: auto"
+          />
+          <p class="fs-2">Echo3d</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+  </body>
+</html>
