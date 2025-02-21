@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --primary-color: #1c3f60;
+  --secondary-color: #0eba94;
+  --text-color: #000;
+  --background-color-two: #f9f9f9;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--background-color-two);
+  color: var(--text-color);
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.content {
+  text-align: center;
+  z-index: 10;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 60px;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.description {
+  font-size: 30px;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 30px;
+  color: var(--text-color);
+}
+
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  background: var(--primary-color);
+  opacity: 0.8;
+  animation: move 5s linear infinite;
+}
+
+.line.vertical {
+  width: 2px;
+  height: 150px;
+  animation: fall 5s linear infinite;
+}
+
+.line.horizontal {
+  width: 150px;
+  height: 2px;
+  animation: slide 5s linear infinite;
+}
+
+.line.upward {
+  width: 2px;
+  height: 150px;
+  animation: rise 5s linear infinite;
+}
+
+.line.right-to-left {
+  width: 150px;
+  height: 2px;
+  animation: reverse-slide 5s linear infinite;
+}
+
+/* Animations */
+@keyframes fall {
+  from {
+    top: -150px;
+  }
+  to {
+    top: 100vh;
+  }
+}
+
+@keyframes slide {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100vw;
+  }
+}
+
+@keyframes rise {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: -150px;
+  }
+}
+
+@keyframes reverse-slide {
+  from {
+    left: 100vw;
+  }
+  to {
+    left: -150px;
+  }
+}
+
+@media (max-width: 850px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .line.vertical {
+    display: none;
+  }
+  .line.upward {
+    display: none;
+  }
+}

@@ -1,61 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const background = document.querySelector(".background-animation");
-  const content = document.querySelector(".content");
+  // Hero Section Animation
+  anime({
+    targets: "#hero h1",
+    translateY: [-100, 0],
+    opacity: [0, 1],
+    easing: "easeOutExpo",
+    duration: 1500,
+  });
 
-  if (!background || !content) {
-    console.error("Missing required elements");
-    return;
-  }
+  anime({
+    targets: "#hero p",
+    translateY: [50, 0],
+    opacity: [0, 1],
+    easing: "easeOutExpo",
+    duration: 1500,
+    delay: 500,
+  });
 
-  function getSafeZone() {
-    const rect = content.getBoundingClientRect();
-    return {
-      top: rect.top,
-      bottom: rect.bottom,
-      left: rect.left,
-      right: rect.right,
-    };
-  }
+  anime({
+    targets: ".btn-primary",
+    translateY: [50, 0],
+    opacity: [0, 1],
+    easing: "easeOutExpo",
+    duration: 1500,
+    delay: 1000,
+  });
 
-  function createLine() {
-    const line = document.createElement("div");
-    const directions = ["vertical", "horizontal", "upward", "right-to-left"];
-    const direction = directions[Math.floor(Math.random() * directions.length)];
-    line.classList.add("line", direction);
+  // Helper function for animation
+  const animateInView = (target, index) => {
+    anime({
+      targets: target,
+      opacity: [0, 1],
+      translateY: [30, 0],
+      easing: "easeOutQuad",
+      duration: 2000, // Slower animation duration
+      delay: index * 300,
+    });
+  };
 
-    const safeZone = getSafeZone();
+  // Function to trigger animations when sections are in view
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry, index) => {
+        if (
+          entry.isIntersecting &&
+          !entry.target.classList.contains("animated")
+        ) {
+          // Add the 'animated' class to prevent re-triggering
+          entry.target.classList.add("animated");
+          animateInView(entry.target, index);
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
 
-    if (direction === "vertical" || direction === "upward") {
-      let x;
-      let attempts = 0;
-      do {
-        x = Math.random() * window.innerWidth;
-        attempts++;
-        if (attempts > 50) break;
-      } while (x > safeZone.left && x < safeZone.right);
-      line.style.left = `${x}px`;
-    } else {
-      let y;
-      let attempts = 0;
-      do {
-        y = Math.random() * window.innerHeight;
-        attempts++;
-        if (attempts > 50) break;
-      } while (y > safeZone.top && y < safeZone.bottom);
-      line.style.top = `${y}px`;
-    }
-
-    line.style.animationDuration = `${Math.random() * 3 + 2}s`;
-    background.appendChild(line);
-
-    setTimeout(() => {
-      line.remove();
-    }, 5000);
-  }
-
-  // Increase animation density
-  setInterval(() => {
-    createLine();
-    createLine();
-  }, 300);
+  document
+    .querySelectorAll(".schedule-row, .accordion-item, #sponsors img")
+    .forEach((section, index) => {
+      observer.observe(section);
+    });
 });
