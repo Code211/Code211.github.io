@@ -1,22 +1,29 @@
 function load() {
-  const nav = new XMLHttpRequest();
-  nav.open("GET", "../components/navbar.html", true);
+  // Load Navbar
+  fetch("../components/navbar.html")
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      }
+      throw new Error("Navbar failed to load");
+    })
+    .then((html) => {
+      document.getElementById("navbar").innerHTML = html;
+    })
+    .catch((error) => console.error(error));
 
-  nav.onload = function () {
-    if (nav.status === 200) {
-      document.getElementById("navbar").innerHTML = nav.responseText;
-    }
-  };
-  nav.send();
-
-  const foot = new XMLHttpRequest();
-  foot.open("GET", "../components/footer.html", true);
-
-  foot.onload = function () {
-    if (foot.status === 200) {
-      document.getElementById("footer").innerHTML = foot.responseText;
-    }
-  };
-  foot.send();
+  // Load Footer
+  fetch("../components/footer.html")
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      }
+      throw new Error("Footer failed to load");
+    })
+    .then((html) => {
+      document.getElementById("footer").innerHTML = html;
+    })
+    .catch((error) => console.error(error));
 }
-window.onload = load;
+
+window.addEventListener("load", load);
