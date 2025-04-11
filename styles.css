@@ -37,7 +37,7 @@ body {
   margin-left: auto;
 }
 
-#hero h1{
+#hero h1 {
   color: var(--text-color) !important;
 }
 
@@ -77,9 +77,24 @@ hr {
   height: 4px;
   background-color: var(--primary-color);
   margin: 20px auto;
-  opacity: .5;
+  opacity: 0.5;
 }
 
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-box p {
+  margin: 0;
+}
+
+.divider {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0 0.5rem;
+}
 
 .schedule-container {
   margin: 0 auto;
@@ -124,12 +139,12 @@ hr {
   color: #333;
 }
 
-.event-name a{
+.event-name a {
   text-decoration: none;
   color: var(--link-color);
 }
 
-.schedule-row:hover .event-name a{
+.schedule-row:hover .event-name a {
   text-decoration: none;
   color: #007447;
 }
@@ -175,11 +190,11 @@ footer {
   padding: 20px;
 }
 
-footer a{
+footer a {
   text-decoration: none;
 }
 
-footer a:hover{
+footer a:hover {
   color: var(--secondary-color) !important;
 }
 
@@ -204,4 +219,3 @@ footer a:hover{
     width: 100%;
   }
 }
-
