@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
   const countdownEl = document.getElementById("countdown");
-  const countDownDate = new Date("Apr 12, 2025 08:00:00").getTime();
+  const countDownDate = new Date("Apr 4, 2026 08:00:00").getTime();
 
   const x = setInterval(function () {
     const now = new Date().getTime();
