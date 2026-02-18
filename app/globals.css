@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@layer base {
+  :root {
+    /* Background: A very light, warm "Paper" white (#f8f9fa) */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 2%;
+
+    /* Card: Pure white for a crisp, layered "elevated" look */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 2%;
+
+    /* Primary: The Midnight Blue darkened to near-black for luxury text */
+    --primary: 215 45% 20%;
+    --primary-foreground: 210 20% 98%;
+
+    /* Secondary: Olive Green used as a sophisticated "trim" color */
+    --secondary: 85 20% 30%;
+    --secondary-foreground: 210 20% 98%;
+
+    /* Muted: Soft grey for a clean, non-distracting UI */
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent: A light "Sage" wash for hover states */
+    --accent: 85 20% 95%;
+    --accent-foreground: 85 25% 20%;
+
+    /* Borders: Light but defined (This is the "Industrial" part) */
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 215 45% 20%;
+
+    --radius: 0.375rem;
+
+    /* Gradients: Subtle transition from deep blue to deep green */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(215 45% 20%),
+      hsl(85 20% 30%)
+    );
+
+    /* Shadows: Very subtle, wide blur "expensive" shadows */
+    --shadow-glow: 0 10px 40px -10px hsl(222 47% 2% / 0.08);
+    --shadow-glow-strong: 0 20px 50px -15px hsl(222 47% 2% / 0.12);
+  }
+
+  /* Dark mode: original deep background; brighter primary/accent for less muted feel */
+  /* Other dark background options (swap --background value to try):
+     Softer blue-black:  222 30% 6%
+     Warm charcoal:     220 15% 8%
+     Neutral dark:      0 0% 7%
+     Deep navy:         224 45% 6%
+     Slate:             222 20% 9%
+  */
+  .dark {
+    --background: 222 47% 2%;
+    --foreground: 0 0% 98%;
+    --primary: 215 45% 48%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 75 25% 48%;
+    --secondary-foreground: 0 0% 98%;
+    --card: 222 47% 4%;
+    --card-foreground: 0 0% 98%;
+    --muted: 222 20% 12%;
+    --muted-foreground: 215 12% 70%;
+    --accent: 75 22% 35%;
+    --accent-foreground: 0 0% 98%;
+    --border: 222 20% 15%;
+    --input: 222 20% 15%;
+    --ring: 215 45% 48%;
+    --shadow-glow: 0 10px 30px -10px hsl(222 47% 2% / 0.5),
+      0 0 20px hsl(215 45% 48% / 0.2);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(215 45% 52%),
+      hsl(75 25% 50%)
+    );
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: "";
+    @apply absolute inset-0 rounded-lg;
+    padding: 1px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-effect-strong {
+    box-shadow: var(--shadow-glow-strong);
+  }
+
+  .noise-bg {
+    position: relative;
+  }
+
+  .noise-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .scanline {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(0 0% 0% / 0.03) 2px,
+      hsl(0 0% 0% / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  .terminal-cursor {
+    @apply inline-block w-2 h-5 bg-primary ml-1;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-right transition-transform duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
