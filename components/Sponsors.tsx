@@ -18,6 +18,10 @@ const Sponsors = () => {
           name: "District 211",
           logo: "/sponsors/d211.png",
         },
+        {
+          name: "Wolfram",
+          logo: "/sponsors/wolfram.png",
+        },
       ],
     },
     {
@@ -25,16 +29,20 @@ const Sponsors = () => {
       size: "w-40 h-40",
       sponsors: [
         {
-          name: "JetsPizza",
-          logo: "/sponsors/jets.png",
+          name: "Gen.XYZ",
+          logo: "/sponsors/xyz.png",
         },
-  
       ],
     },
     {
       name: "Silver",
       size: "w-32 h-32",
-      sponsors: [],
+      sponsors: [
+        {
+          name: "JetsPizza",
+          logo: "/sponsors/jets.png",
+        },
+      ],
     },
     {
       name: "Bronze",
@@ -51,7 +59,7 @@ const Sponsors = () => {
   };
 
   return (
-    <section id="sponsors" className="py-24 bg-card noise-bg" ref={ref}>
+    <section id="sponsors" className="py-24 bg-card" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
