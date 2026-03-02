@@ -79,7 +79,7 @@ const FAQs = () => {
   );
 
   return (
-    <section id="faqs" className="py-24 bg-background noise-bg" ref={ref}>
+    <section id="faqs" className="py-24 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-12"
@@ -98,52 +98,54 @@ const FAQs = () => {
         <div className="max-w-6xl mx-auto [column-count:1] md:[column-count:2] gap-4 space-y-4">
           {allQuestions.map((faq, index) => (
             <div key={index} className="break-inside-avoid mb-4">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 + index * 0.05 }}
-              className="border border-border rounded-lg overflow-hidden bg-background"
-            >
-              <button
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 + index * 0.05 }}
+                className="border border-border rounded-lg overflow-hidden bg-background"
               >
-                <div className="flex items-center gap-4">
-                  <span className="text-xs font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
-                    {faq.category}
-                  </span>
-                  <span className="font-medium">{faq.q}</span>
-                </div>
-                <motion.div
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
+                <button
+                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
                 >
-                  {openIndex === index ? (
-                    <Minus className="w-5 h-5 text-primary" />
-                  ) : (
-                    <Plus className="w-5 h-5 text-muted-foreground" />
-                  )}
-                </motion.div>
-              </button>
-
-              <AnimatePresence>
-                {openIndex === index && (
+                  <div className="flex items-center gap-4">
+                    <span className="text-xs font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
+                      {faq.category}
+                    </span>
+                    <span className="font-medium">{faq.q}</span>
+                  </div>
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+                    animate={{ rotate: openIndex === index ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <div className="px-6 pb-4 text-muted-foreground border-t border-border pt-4">
-                      {faq.a}
-                    </div>
+                    {openIndex === index ? (
+                      <Minus className="w-5 h-5 text-primary" />
+                    ) : (
+                      <Plus className="w-5 h-5 text-muted-foreground" />
+                    )}
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-              </div>
+                </button>
+
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-4 text-muted-foreground border-t border-border pt-4">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </div>
           ))}
         </div>
 

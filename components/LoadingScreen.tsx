@@ -55,7 +55,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 bg-background noise-bg flex items-center justify-center"
+        className="fixed inset-0 z-50 bg-background flex items-center justify-center"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}

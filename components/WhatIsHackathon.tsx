@@ -33,7 +33,7 @@ const WhatIsHackathon = () => {
   ];
 
   return (
-    <section className="py-24 bg-background noise-bg" ref={ref}>
+    <section className="py-24 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
