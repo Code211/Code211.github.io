@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
+/* Space Grotesk is imported via Next.js in layout.tsx */
 
 @layer base {
   :root {
@@ -52,14 +52,6 @@
     --shadow-glow-strong: 0 20px 50px -15px hsl(222 47% 2% / 0.12);
   }
 
-  /* Dark mode: original deep background; brighter primary/accent for less muted feel */
-  /* Other dark background options (swap --background value to try):
-     Softer blue-black:  222 30% 6%
-     Warm charcoal:     220 15% 8%
-     Neutral dark:      0 0% 7%
-     Deep navy:         224 45% 6%
-     Slate:             222 20% 9%
-  */
   .dark {
     --background: 222 47% 2%;
     --foreground: 0 0% 98%;
@@ -93,7 +85,10 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "Inter", sans-serif;
+    /* Font family set from Next.js via CSS variable */
+    font-family: var(--font-space-grotesk), sans-serif;
+    /* Space Grotesk often benefits from slightly tighter tracking */
+    letter-spacing: -0.01em;
   }
 
   h1,
@@ -102,6 +97,7 @@
   h4,
   h5,
   h6 {
+    /* Bold (700) or SemiBold (600) works best for Space Grotesk titles */
     @apply font-bold tracking-tight;
   }
 
