@@ -24,14 +24,32 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("Message sent successfully!");
-    setFormState({ name: "", email: "", message: "" });
+      const data = await response.json();
 
-    setTimeout(() => setIsSubmitted(false), 3000);
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setIsSubmitted(true);
+      toast.success("Message sent successfully!");
+      setFormState({ name: "", email: "", message: "" });
+
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
