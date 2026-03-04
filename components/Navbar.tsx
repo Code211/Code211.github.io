@@ -16,7 +16,6 @@ const navLinks = [
   { name: "Sponsors", href: "/#sponsors" },
   { name: "Workshops", href: "/workshops" },
   { name: "Activities", href: "/activities" },
-  // { name: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -30,14 +29,36 @@ const Navbar = () => {
     setMounted(true);
   }, []);
 
+  // --- SCROLL TO HASH LOGIC ---
+  // This handles scrolling when you arrive at "/" from a different page
+  useEffect(() => {
+    if (pathname === "/" && window.location.hash) {
+      const sectionId = window.location.hash.substring(1);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Timeout ensures the DOM has rendered before we calculate position
+        setTimeout(() => {
+          const offset = 80; // Height of your sticky navbar
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }, 100);
+      }
+    }
+  }, [pathname]);
+
   const isDark = mounted && (resolvedTheme === "dark" || theme === "dark");
-  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -47,11 +68,25 @@ const Navbar = () => {
 
     if (href.startsWith("/#")) {
       const sectionId = href.substring(2);
+
+      // If already on the home page, scroll immediately
       if (pathname === "/") {
         const element = document.getElementById(sectionId);
-        element?.scrollIntoView({ behavior: "smooth" });
+        if (element) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
       } else {
-        window.location.href = href;
+        // If on another page, let the default Link behavior navigate to "/#section"
+        // The useEffect above will catch it when the page loads
       }
     }
   };
@@ -90,8 +125,11 @@ const Navbar = () => {
                   href={link.href}
                   onClick={(e) => {
                     if (link.href.startsWith("/#")) {
-                      e.preventDefault();
-                      handleNavClick(link.href);
+                      // Only prevent default if we are staying on the same page
+                      if (pathname === "/") {
+                        e.preventDefault();
+                        handleNavClick(link.href);
+                      }
                     }
                   }}
                   className="text-base text-foreground hover:text-primary transition-colors link-underline"
@@ -102,24 +140,6 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex items-center gap-4">
-              {/* <button
-                type="button"
-                onClick={toggleTheme}
-                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
-                aria-label={
-                  isDark ? "Switch to light mode" : "Switch to dark mode"
-                }
-              >
-                {mounted ? (
-                  isDark ? (
-                    <Sun className="h-5 w-5" />
-                  ) : (
-                    <Moon className="h-5 w-5" />
-                  )
-                ) : (
-                  <span className="h-5 w-5 block" aria-hidden />
-                )}
-              </button> */}
               <Button
                 asChild
                 variant="default"
@@ -136,24 +156,6 @@ const Navbar = () => {
             </div>
 
             <div className="flex md:hidden items-center gap-1">
-              {/* <button
-                type="button"
-                onClick={toggleTheme}
-                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
-                aria-label={
-                  isDark ? "Switch to light mode" : "Switch to dark mode"
-                }
-              >
-                {mounted ? (
-                  isDark ? (
-                    <Sun className="h-5 w-5" />
-                  ) : (
-                    <Moon className="h-5 w-5" />
-                  )
-                ) : (
-                  <span className="h-5 w-5 block" aria-hidden />
-                )}
-              </button> */}
               <button
                 className="p-2 text-foreground"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -192,7 +194,9 @@ const Navbar = () => {
                     href={link.href}
                     onClick={(e) => {
                       if (link.href.startsWith("/#")) {
-                        e.preventDefault();
+                        if (pathname === "/") {
+                          e.preventDefault();
+                        }
                         handleNavClick(link.href);
                       } else {
                         setIsMobileMenuOpen(false);
