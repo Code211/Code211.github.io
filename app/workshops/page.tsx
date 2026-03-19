@@ -8,15 +8,11 @@ import Footer from "@/components/Footer";
 import {
   Clock,
   MapPin,
-  Users,
-  Code,
   Database,
-  Palette,
-  Smartphone,
   Brain,
-  Rocket,
-  Construction, // Added this icon
-  Sparkles, // Added this icon
+  Gamepad2,
+  Construction,
+  Sparkles,
 } from "lucide-react";
 
 export default function WorkshopsPage() {
@@ -30,15 +26,42 @@ export default function WorkshopsPage() {
   // will automatically disappear and the grid will appear.
   // ---------------------------------------------------------
   const workshops = [
-    /* {
-      name: "Intro to Web Development",
-      description: "Learn the fundamentals of HTML, CSS, and JavaScript.",
-      location: "Room A101",
-      time: "Sat 11:00 AM",
+    {
+      name: "AI Ethics",
+      lead: "Chloe Kim",
+      description:
+        "An exploration of ethical considerations in artificial intelligence.",
+      location: "TBD",
+      time: "Sat 9:30 AM",
       skill: "beginner",
-      icon: Code,
+      icon: Brain,
+      color: "text-purple-400", // New field
+      bgColor: "bg-purple-400/10", // Optional: for the icon box
     },
-    */
+    {
+      name: "CRUD Applications",
+      lead: "Ethan Gandhi & Vedant Patil",
+      description:
+        "This workshop builds a real-time global chat app using Supabase. You’ll focus on inserting and querying data, and handling live updates with subscriptions. With HTML and CSS provided, you’ll concentrate on logic and database interaction, then publish your project using GitHub Pages.",
+      location: "TBD",
+      time: "Sat 10:45 AM",
+      skill: "intermediate",
+      icon: Database,
+      color: "text-blue-400",
+      bgColor: "bg-blue-400/10",
+    },
+    {
+      name: "Game Development",
+      lead: "Tanmay Shetty",
+      description:
+        "Learn the fundamentals of game development in Unity 3D, including player movement, prefabs, and pathfinding. By the end, you’ll build a prototype twin-stick shooter with custom power-ups. Recommended for students with AP Computer Science A experience or familiarity with object-oriented programming.",
+      location: "TBD",
+      time: "Sat 12:45 PM",
+      skill: "intermediate",
+      icon: Gamepad2,
+      color: "text-green-400",
+      bgColor: "bg-green-400/10",
+    },
   ];
 
   const filteredWorkshops =
@@ -93,13 +116,13 @@ export default function WorkshopsPage() {
           ) : (
             /* --- ACTIVE GRID VIEW --- */
             <>
-              <motion.div
+              {/* <motion.div
                 className="flex justify-center gap-4 mb-12"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                {["all", "beginner", "advanced"].map((level) => (
+                {["all", "beginner", "intermediate"].map((level) => (
                   <button
                     key={level}
                     onClick={() => setFilter(level)}
@@ -112,44 +135,57 @@ export default function WorkshopsPage() {
                     {level.charAt(0).toUpperCase() + level.slice(1)}
                   </button>
                 ))}
-              </motion.div>
-
+              </motion.div> */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredWorkshops.map((workshop, index) => (
                   <motion.div
                     key={workshop.name}
-                    className="bg-card border border-border rounded-xl p-6 card-hover"
+                    className="bg-card border border-border rounded-xl p-6 card-hover flex flex-col h-full"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.1 + index * 0.1 }}
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                      <workshop.icon className="w-6 h-6 text-primary" />
+                    {/* Icon and Badge Row */}
+                    <div className="flex justify-between items-start mb-4">
+                      {/* Dynamic Background Color */}
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center ${workshop.bgColor}`}
+                      >
+                        {/* Dynamic Icon Color */}
+                        <workshop.icon
+                          className={`w-6 h-6 ${workshop.color}`}
+                        />
+                      </div>
+
+                      <span
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-secondary/20 text-secondary"
+                      >
+                        {workshop.skill.charAt(0).toUpperCase() +
+                          workshop.skill.slice(1)}
+                      </span>
                     </div>
 
-                    <span
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 ${
-                        workshop.skill === "beginner"
-                          ? "bg-secondary/20 text-secondary"
-                          : "bg-accent/20 text-accent"
-                      }`}
-                    >
-                      {workshop.skill.charAt(0).toUpperCase() +
-                        workshop.skill.slice(1)}
-                    </span>
+                    {/* Title and Lead */}
+                    <h3 className="text-xl font-bold">{workshop.name}</h3>
+                    <p className="text-muted-foreground/70 text-sm font-medium mb-3">
+                      Led by{" "}
+                      <span className="text-foreground">{workshop.lead}</span>
+                    </p>
 
-                    <h3 className="text-xl font-bold mb-2">{workshop.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
+                    {/* Description pushes the footer down */}
+                    <p className="text-foreground text-sm mb-6 flex-grow">
                       {workshop.description}
                     </p>
 
-                    <div className="space-y-2 text-sm text-muted-foreground">
+                    {/* Clean Footer with Icons at the bottom */}
+                    <div className="space-y-3 text-sm text-muted-foreground pt-4 border-t border-border/40 mt-auto">
                       <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-primary" />
+                        {/* Matching the small icons to the main theme color looks sharp */}
+                        <Clock className={`w-4 h-4 ${workshop.color}`} />
                         <span>{workshop.time}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-primary" />
+                        <MapPin className={`w-4 h-4 ${workshop.color}`} />
                         <span>{workshop.location}</span>
                       </div>
                     </div>

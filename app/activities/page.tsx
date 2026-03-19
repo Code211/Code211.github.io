@@ -8,14 +8,9 @@ import Footer from "@/components/Footer";
 import {
   Clock,
   MapPin,
-  Gamepad2,
-  Music,
-  Pizza,
-  Coffee,
-  Trophy,
-  Puzzle,
-  Film,
-  Laugh,
+  Binary,
+  Swords,
+  Zap,
   PartyPopper, // Added for empty state
   Sparkles, // Added for empty state
 } from "lucide-react";
@@ -30,24 +25,33 @@ export default function ActivitiesPage() {
   // If you add items, the Grid automatically appears.
   // ---------------------------------------------------------
   const activities = [
-    /*
     {
-      name: "Tech Trivia Championship",
-      description: "Test your knowledge. Win amazing prizes!",
-      location: "Main Hall",
-      time: "Sat 3:00 PM",
-      icon: Trophy,
-      color: "from-yellow-400 to-amber-500",
+      name: "AI Clash",
+      description:
+        "The ultimate prompt-off. Build, iterate, and compete using nothing but the power of AI.",
+      location: "TBD",
+      time: "Sat 10:00 AM",
+      icon: Swords,
+      color: "from-red-400 to-orange-500",
     },
     {
-      name: "Game Night",
-      description: "Board games, card games, and video game tournaments.",
-      location: "Lounge Area",
-      time: "Sat 9:00 PM",
-      icon: Gamepad2,
+      name: "Speed Stack: The Glow Up",
+      description:
+        "We give you the world's worst website; you make it a masterpiece before the clock runs out.",
+      location: "TBD",
+      time: "Sat 11:15 AM",
+      icon: Sparkles,
+      color: "from-emerald-400 to-teal-500",
+    },
+    {
+      name: "Wolfram Alpha Activity",
+      description:
+        "Solve complex problems and explore computational intelligence using Wolfram.",
+      location: "TBD",
+      time: "Sat 1:15 PM",
+      icon: Binary,
       color: "from-purple-400 to-pink-500",
     },
-    */
   ];
 
   const isComingSoon = activities.length === 0;
@@ -99,20 +103,6 @@ export default function ActivitiesPage() {
           ) : (
             /* --- ACTIVE GRID STATE --- */
             <>
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30">
-                  <span className="text-2xl mr-2">🎉</span>
-                  <span className="font-medium">
-                    Remember: Balance is key! Have fun while you hack.
-                  </span>
-                </div>
-              </motion.div>
-
               {/* Dynamic Grid: auto-fit with min-width of 280px */}
               <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
                 {activities.map((activity, index) => (

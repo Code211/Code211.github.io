@@ -47,7 +47,7 @@ const EventInfo = () => {
     { icon: Clock, label: "12 hours", description: "Of non-stop hacking" },
     {
       icon: Trophy,
-      label: "$10K+ in prizes",
+      label: "$90K+ in prizes",
       description: "For winning teams",
     },
   ];
