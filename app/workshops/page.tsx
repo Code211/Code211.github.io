@@ -30,7 +30,7 @@ export default function WorkshopsPage() {
       name: "AI Ethics",
       lead: "Chloe Kim",
       description:
-        "An exploration of ethical considerations in artificial intelligence.",
+        "This workshop explores how artificial intelligence is impacting today’s world. Through  variety of interactive activities, students will learn about key issues in AI, including bias in AI systems, data privacy, misinformation, and the role AI plays in school. This session is perfect for anyone who enjoys debating ethical issues or is looking for a fun yet thought-provoking workshop!",
       location: "TBD",
       time: "Sat 9:30 AM",
       skill: "beginner",
@@ -52,7 +52,7 @@ export default function WorkshopsPage() {
     },
     {
       name: "Game Development",
-      lead: "Tanmay Shetty",
+      lead: "Tanmay Shetty &  Tanav Somireddy",
       description:
         "Learn the fundamentals of game development in Unity 3D, including player movement, prefabs, and pathfinding. By the end, you’ll build a prototype twin-stick shooter with custom power-ups. Recommended for students with AP Computer Science A experience or familiarity with object-oriented programming.",
       location: "TBD",
