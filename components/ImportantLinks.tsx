@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Users, MessageCircle, MapIcon } from "lucide-react";
+import {
+  ExternalLink,
+  Users,
+  MessageCircle,
+  MapIcon,
+  Scale,
+} from "lucide-react";
 
 const ImportantLinks = () => {
   const ref = useRef(null);
@@ -30,6 +36,13 @@ const ImportantLinks = () => {
       icon: Users,
       href: "https://docs.google.com/spreadsheets/d/18A4SxhTWJ1sStbotObE4rULkt5AeT1HaSXGgGCyZ6-8/edit?usp=sharing",
       color: "from-[#10B981] to-[#059669]",
+    },
+    {
+      title: "Judging Order",
+      description: "View judging order",
+      icon: Scale,
+      href: "https://docs.google.com/spreadsheets/d/182ojrDLH65kXnHTRwBK67_RwHbT01e2IRsRGSQYehuA/edit?usp=sharing",
+      color: "from-[#3B82F6] to-[#1D4ED8]",
     },
     {
       title: "Map",
