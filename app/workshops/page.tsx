@@ -13,6 +13,7 @@ import {
   Gamepad2,
   Construction,
   Sparkles,
+  Github,
 } from "lucide-react";
 
 export default function WorkshopsPage() {
@@ -31,7 +32,7 @@ export default function WorkshopsPage() {
       lead: "Chloe Kim",
       description:
         "This workshop explores how artificial intelligence is impacting today’s world. Through  variety of interactive activities, students will learn about key issues in AI, including bias in AI systems, data privacy, misinformation, and the role AI plays in school. This session is perfect for anyone who enjoys debating ethical issues or is looking for a fun yet thought-provoking workshop!",
-      location: "TBD",
+      location: "213S",
       time: "Sat 9:30 AM",
       skill: "beginner",
       icon: Brain,
@@ -43,24 +44,27 @@ export default function WorkshopsPage() {
       lead: "Ethan Gandhi & Vedant Patil",
       description:
         "This workshop builds a real-time global chat app using Supabase. You’ll focus on inserting and querying data, and handling live updates with subscriptions. With HTML and CSS provided, you’ll concentrate on logic and database interaction, then publish your project using GitHub Pages.",
-      location: "TBD",
-      time: "Sat 10:45 AM",
+      location: "213S",
+      time: "Sat 11:15 AM",
       skill: "intermediate",
       icon: Database,
       color: "text-blue-400",
       bgColor: "bg-blue-400/10",
+      sourceCodeUrl: "https://github.com/V-Paritosh/CRUD-Applications",
     },
     {
       name: "Game Development",
       lead: "Tanmay Shetty &  Tanav Somireddy",
       description:
         "Learn the fundamentals of game development in Unity 3D, including player movement, prefabs, and pathfinding. By the end, you’ll build a prototype twin-stick shooter with custom power-ups. Recommended for students with AP Computer Science A experience or familiarity with object-oriented programming.",
-      location: "TBD",
+      location: "213S",
       time: "Sat 12:45 PM",
       skill: "intermediate",
       icon: Gamepad2,
       color: "text-green-400",
       bgColor: "bg-green-400/10",
+      sourceCodeUrl:
+        "https://github.com/SentientPeeledLemon/Hackathon_TwinStick_FullCopy",
     },
   ];
 
@@ -157,9 +161,7 @@ export default function WorkshopsPage() {
                         />
                       </div>
 
-                      <span
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-secondary/20 text-secondary"
-                      >
+                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-secondary/20 text-secondary">
                         {workshop.skill.charAt(0).toUpperCase() +
                           workshop.skill.slice(1)}
                       </span>
@@ -188,6 +190,17 @@ export default function WorkshopsPage() {
                         <MapPin className={`w-4 h-4 ${workshop.color}`} />
                         <span>{workshop.location}</span>
                       </div>
+                      {workshop.sourceCodeUrl && (
+                        <a
+                          href={workshop.sourceCodeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                        >
+                          <Github className="w-4 h-4" />
+                          <span className="font-medium">View Source Code</span>
+                        </a>
+                      )}
                     </div>
                   </motion.div>
                 ))}
