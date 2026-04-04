@@ -3,12 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import {
-  ExternalLink,
-  Users,
-  MessageCircle,
-  MapIcon,
-} from "lucide-react";
+import { ExternalLink, Users, MessageCircle, MapIcon } from "lucide-react";
 
 const ImportantLinks = () => {
   const ref = useRef(null);
@@ -30,11 +25,18 @@ const ImportantLinks = () => {
       color: "from-[#5865F2] to-[#7289DA]",
     },
     {
+      title: "Teams",
+      description: "View registered teams",
+      icon: Users,
+      href: "https://docs.google.com/spreadsheets/d/18A4SxhTWJ1sStbotObE4rULkt5AeT1HaSXGgGCyZ6-8/edit?usp=sharing",
+      color: "from-[#10B981] to-[#059669]",
+    },
+    {
       title: "Map",
       description: "SHS Second Floor",
       icon: MapIcon,
       href: "map.jpg",
-      color: "from-[#5865F2] to-[#7289DA]",
+      color: "from-[#F97316] to-[#EA580C]",
     },
   ];
 
