@@ -89,7 +89,7 @@ const Schedule = () => {
           events: [
             {
               time: "12:45 PM - 1:30 PM",
-              title: "Workshop 3: Game Development (FHS)",
+              title: "Workshop 3: Game Development",
               type: "workshop",
               location: "213S",
               description:
