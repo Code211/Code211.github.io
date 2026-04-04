@@ -11,6 +11,7 @@ import {
   Binary,
   Swords,
   Zap,
+  Github,
   PartyPopper, // Added for empty state
   Sparkles, // Added for empty state
 } from "lucide-react";
@@ -29,7 +30,7 @@ export default function ActivitiesPage() {
       name: "AI Clash",
       description:
         "The ultimate prompt-off. Build, iterate, and compete using nothing but the power of AI.",
-      location: "TBD",
+      location: "218A",
       time: "Sat 10:00 AM",
       icon: Swords,
       color: "from-red-400 to-orange-500",
@@ -38,19 +39,11 @@ export default function ActivitiesPage() {
       name: "Speed Stack: The Glow Up",
       description:
         "We give you the world's worst website; you make it a masterpiece before the clock runs out.",
-      location: "TBD",
-      time: "Sat 11:15 AM",
+      location: "218A",
+      time: "Sat 1:15 PM",
       icon: Sparkles,
       color: "from-emerald-400 to-teal-500",
-    },
-    {
-      name: "Wolfram Alpha Activity",
-      description:
-        "Solve complex problems and explore computational intelligence using Wolfram.",
-      location: "TBD",
-      time: "Sat 1:15 PM",
-      icon: Binary,
-      color: "from-purple-400 to-pink-500",
+      // sourceCodeUrl: "https://github.com/your-org/speed-stack-activity",
     },
   ];
 
@@ -134,6 +127,19 @@ export default function ActivitiesPage() {
                           <MapPin className="w-4 h-4 text-primary" />
                           <span>{activity.location}</span>
                         </div>
+                        {/* {activity.sourceCodeUrl && (
+                          <a
+                            href={activity.sourceCodeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                          >
+                            <Github className="w-4 h-4" />
+                            <span className="font-medium">
+                              View Source Code
+                            </span>
+                          </a>
+                        )} */}
                       </div>
                     </div>
                     <div
