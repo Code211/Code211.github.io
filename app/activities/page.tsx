@@ -43,7 +43,7 @@ export default function ActivitiesPage() {
       time: "Sat 1:15 PM",
       icon: Sparkles,
       color: "from-emerald-400 to-teal-500",
-      // sourceCodeUrl: "https://github.com/your-org/speed-stack-activity",
+      sourceCodeUrl: "https://github.com/V-Paritosh/Speed-Stack-The-Glow-Up",
     },
   ];
 
@@ -127,7 +127,7 @@ export default function ActivitiesPage() {
                           <MapPin className="w-4 h-4 text-primary" />
                           <span>{activity.location}</span>
                         </div>
-                        {/* {activity.sourceCodeUrl && (
+                        {activity.sourceCodeUrl && (
                           <a
                             href={activity.sourceCodeUrl}
                             target="_blank"
@@ -139,7 +139,7 @@ export default function ActivitiesPage() {
                               View Source Code
                             </span>
                           </a>
-                        )} */}
+                        )}
                       </div>
                     </div>
                     <div
