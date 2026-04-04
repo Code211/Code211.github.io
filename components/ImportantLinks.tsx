@@ -7,8 +7,6 @@ import {
   ExternalLink,
   Users,
   MessageCircle,
-  FileText, // Added for demo
-  Calendar, // Added for demo
 } from "lucide-react";
 
 const ImportantLinks = () => {
@@ -27,13 +25,13 @@ const ImportantLinks = () => {
       title: "Discord",
       description: "Join the community",
       icon: MessageCircle,
-      href: "#",
+      href: "https://discord.com/invite/ZEvmePbwHZ",
       color: "from-[#5865F2] to-[#7289DA]",
     },
   ];
 
   return (
-    <section className="py-24 bg-card" ref={ref}>
+    <section id="link" className="py-24 bg-card" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-12"

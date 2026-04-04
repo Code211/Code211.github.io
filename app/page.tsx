@@ -29,7 +29,7 @@ export default function HomePage() {
             <Hero />
             <EventInfo />
             <WhatIsHackathon />
-            {/* <ImportantLinks /> */}
+            <ImportantLinks />
             <Schedule />
             <FAQs />
             <Sponsors />
