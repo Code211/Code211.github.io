@@ -7,6 +7,7 @@ import {
   ExternalLink,
   Users,
   MessageCircle,
+  MapIcon,
 } from "lucide-react";
 
 const ImportantLinks = () => {
@@ -26,6 +27,13 @@ const ImportantLinks = () => {
       description: "Join the community",
       icon: MessageCircle,
       href: "https://discord.com/invite/ZEvmePbwHZ",
+      color: "from-[#5865F2] to-[#7289DA]",
+    },
+    {
+      title: "Map",
+      description: "SHS Second Floor",
+      icon: MapIcon,
+      href: "map.jpg",
       color: "from-[#5865F2] to-[#7289DA]",
     },
   ];
@@ -58,6 +66,8 @@ const ImportantLinks = () => {
             <motion.a
               key={link.title}
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative p-6 bg-background rounded-xl border border-border overflow-hidden card-hover"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
