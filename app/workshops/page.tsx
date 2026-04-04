@@ -50,7 +50,7 @@ export default function WorkshopsPage() {
       icon: Database,
       color: "text-blue-400",
       bgColor: "bg-blue-400/10",
-      sourceCodeUrl: "https://github.com/V-Paritosh/CRUD-Applications",
+      sourceCodeUrl: "https://github.com/EthanGandhi28/CRUD-Applications-main",
     },
     {
       name: "Game Development",
