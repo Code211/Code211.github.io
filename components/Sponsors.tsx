@@ -47,7 +47,14 @@ const Sponsors = () => {
     {
       name: "Bronze",
       size: "w-24 h-24",
-      sponsors: [],
+      sponsors: [{
+          name: "Jimmy John's",
+          logo: "/sponsors/jimmyjohns.png",
+        },
+        {
+          name: "CodeHS",
+          logo: "/sponsors/codehs.png",
+        },],
     },
   ];
 
