@@ -49,7 +49,7 @@ const Schedule = () => {
               time: "9:30 AM - 10:15 AM",
               title: "Workshop 1: AI Ethics",
               type: "workshop",
-              location: "TBD",
+              location: "213S",
               description:
                 "Explore the ethical challenges and real-world implications of artificial intelligence.",
             },
@@ -57,32 +57,22 @@ const Schedule = () => {
               time: "10:00 AM - 10:45 AM",
               title: "Activity 1: AI Clash",
               type: "activity",
-              location: "TBD",
+              location: "218A",
               description:
                 "Compete in the ultimate prompt-off by building and refining projects using only AI tools.",
             },
           ],
         },
         {
-          isOverlap: true,
-          events: [
-            {
-              time: "10:45 AM - 11:30 AM",
-              title: "Workshop 2: CRUD Applications",
-              type: "workshop",
-              location: "TBD",
-              description:
-                "Build a real-time global chat app using Supabase. Focus on database operations and live updates, then publish your project with GitHub Pages.",
-            },
-            {
-              time: "11:15 AM - 12:00 PM",
-              title: "Activity 2: Speed Stack: The Glow Up",
-              type: "activity",
-              location: "TBD",
-              description:
-                "Transform the world’s worst website into a polished, high-quality design under time pressure.",
-            },
-          ],
+          isOverlap: false,
+          event: {
+            time: "11:15 AM - 12:00 PM",
+            title: "Workshop 2: CRUD Applications",
+            type: "workshop",
+            location: "213S",
+            description:
+              "Build a real-time global chat app using Supabase. Focus on database operations and live updates, then publish your project with GitHub Pages.",
+          },
         },
         {
           isOverlap: false,
@@ -101,17 +91,17 @@ const Schedule = () => {
               time: "12:45 PM - 1:30 PM",
               title: "Workshop 3: Game Development (FHS)",
               type: "workshop",
-              location: "TBD",
+              location: "213S",
               description:
                 "Learn Unity 3D fundamentals like player movement, prefabs, and pathfinding while building a twin-stick shooter prototype.",
             },
             {
               time: "1:15 PM - 2:00 PM",
-              title: "Activity 3: Wolfram Alpha Activity",
+              title: "Activity 2: Speed Stack: The Glow Up",
               type: "activity",
-              location: "TBD",
+              location: "218A",
               description:
-                "Solve complex problems and explore computational intelligence using Wolfram tools.",
+                "Transform the world’s worst website into a polished, high-quality design under time pressure.",
             },
           ],
         },
